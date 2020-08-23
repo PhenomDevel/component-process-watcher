@@ -27,8 +27,7 @@ The code below shows an lightweight example of how you could use this component 
   (atom
    (c/system-map
      :process-watcher
-     (process-watcher/new-process-watcher
-       (process-watcher (:process-watcher config)}))))
+     (process-watcher/new-process-watcher (:process-watcher config)))))
 
 (swap! !system c/start)
 ;; This will start your system with the process-watcher
