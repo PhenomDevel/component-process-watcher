@@ -33,6 +33,9 @@ The code below shows an lightweight example of how you could use this component 
 ;; This will start your system with the process-watcher
 
 ```
+# TODO
+ - Be able to provide own stream which the process output is redirected to
+ - Be able to manage the log level the process output should be loggedo n
 
 # License
 Copyright © 2020 Kevin Kaiser
