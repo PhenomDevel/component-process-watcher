@@ -50,7 +50,7 @@
 
   (stop [this]
     (log/info "[ProcessWatcher] Stopping process for `")
-    (when (.isAlive process)
+    (when (and process (.isAlive process))
       (.destroy process))
     (assoc this :process nil)))
 
