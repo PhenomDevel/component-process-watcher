@@ -37,4 +37,4 @@ The code below shows an lightweight example of how you could use this component 
 # License
 Copyright © 2020 Kevin Kaiser
 
-Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+Distributed under the MIT License.
