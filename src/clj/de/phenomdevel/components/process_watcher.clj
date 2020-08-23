@@ -9,7 +9,7 @@
 
 
 ;; =============================================================================
-;; Component
+;; Private Helper
 
 (defn- print-stream
   [stream]
@@ -30,6 +30,10 @@
         (.getInputStream)
         (print-stream)
         (future))))
+
+
+;; =============================================================================
+;; Component
 
 (defrecord ProcessWatcher [command
 

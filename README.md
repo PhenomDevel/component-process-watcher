@@ -8,7 +8,7 @@ This library provides an easy to use [`com.stuartsierra/component`](https://gith
 # Installation
 To install, add the following to your project `:dependencies`:
 ```
-[de.phenomdevel/component-process-watcher "0.1.-SNAPSHOT"]
+[de.phenomdevel/component-process-watcher "0.1.0-SNAPSHOT"]
 ```
 
 ## Usage
