@@ -44,12 +44,12 @@
     (let [process
           (.exec (Runtime/getRuntime) command)]
 
-      (log/info "[ProcessWatcher] Starting new process with `")
+      (log/info "[ProcessWatcher] Starting new process with command `" command "`")
       (redirect-output! process)
       (assoc this :process process)))
 
   (stop [this]
-    (log/info "[ProcessWatcher] Stopping process for `")
+    (log/info "[ProcessWatcher] Stopping process for command `" command "`")
     (when (and process (.isAlive process))
       (.destroy process))
     (assoc this :process nil)))
