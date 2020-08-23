@@ -11,7 +11,7 @@
 ;; =============================================================================
 ;; Private Helper
 
-(defn- print-stream
+(defn- log-stream
   [stream]
   (let [buffer
         (->> stream
@@ -20,15 +20,14 @@
 
     (loop [line (.readLine buffer)]
       (when line
-        (println line)
+        (log/debug "[ProcessWatcher]" line)
         (recur (.readLine buffer))))))
 
 (defn- redirect-output!
   [p]
   (when (instance? java.lang.Process p)
-    (-> p
-        (.getInputStream)
-        (print-stream)
+    (-> (.getInputStream p)
+        (log-stream)
         (future))))
 
 
