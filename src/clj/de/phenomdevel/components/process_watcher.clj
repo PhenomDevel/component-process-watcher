@@ -1,5 +1,6 @@
 (ns de.phenomdevel.components.process-watcher
   (:require
+   [clojure.string :as str]
    [clojure.spec.alpha :as s]
 
    [taoensso.timbre :as log]
@@ -10,6 +11,11 @@
 
 ;; =============================================================================
 ;; Private Helper
+
+(def ^:private windows?
+  (-> (System/getProperty "os.name")
+      (str/lower-case)
+      (str/includes? "win")))
 
 (defn- log-stream
   [stream]
@@ -40,8 +46,13 @@
 
   c/Lifecycle
   (start [this]
-    (let [process
-          (.exec (Runtime/getRuntime) command)]
+    (let [command'
+          (cond->> command
+            windows?
+            (str "cmd /C"))
+
+          process
+          (.exec (Runtime/getRuntime) command')]
 
       (log/info "[ProcessWatcher] Starting new process with command `" command "`")
       (redirect-output! process)
